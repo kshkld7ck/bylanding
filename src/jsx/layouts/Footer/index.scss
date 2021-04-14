@@ -1,0 +1,58 @@
+@import "../../../assets/css/variables/colors";
+@import "../../../assets/css/mixins/flex";
+body footer {
+    background: #000;
+    padding: 24px 0;
+}
+
+footer .container {
+    @include flex-row(space-between, center);
+    .copyright {
+        color: #fff;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+    .socials {
+        @include flex-row(space-between, center);
+        a {
+            width: 46px;
+            height: 46px;
+            background: $white;
+            margin-right: 24px;
+            border-radius: 50%;
+            @include flex-row(center, center);
+            &:last-child {
+                margin-right: 0;
+            }
+            svg {
+                filter: brightness(0%);
+                transition: 0.2s;
+            }
+        }
+        a:hover {
+            svg {
+                filter: brightness(100%);
+            }
+        }
+    }
+    @media (min-width: 768px) and (max-width: 930px) {
+        .copyright {
+            grid-area: copyright;
+            &+img {
+                grid-area: logo;
+            }
+        }
+        .socials {
+            grid-area: socials;
+            justify-content: center;
+        }
+        display: grid;
+        row-gap: 30px;
+        grid-template-areas: 'copyright logo' 'socials socials';
+    }
+}

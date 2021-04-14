@@ -1,0 +1,130 @@
+@import "../../../assets/css/variables/colors";
+@import "../../../assets/css/mixins/flex";
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    @media (min-width: 768px) and (max-width: 1050px) {
+        display: none !important;
+    }
+}
+
+.language__link {
+    $color: $black;
+    &:visited {
+        color: $black;
+    }
+    &_active {
+        color: $primary !important;
+    }
+}
+
+header .container {
+    @include flex-row(space-between, center);
+    .tools {
+        @include flex-row(flex-end, center);
+        .language {
+            margin-left: 28px;
+            display: flex;
+            column-gap: 17px;
+            position: relative;
+            &:after {
+                background: $black;
+                height: 11px;
+                width: 1px;
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+    v a:not(.btn) {
+        font-size: 16px;
+        line-height: 22px;
+        color: $black;
+    }
+    .nav {
+        @include flex-row(flex-start, center);
+        // column-gap: 40px;
+        .nav__link {
+            margin-right: 40px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .nav__submenu {
+            left: 0;
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            top: 100%;
+            padding-top: 35px;
+            transition: 0.2s ease;
+            .nav__link {
+                margin-right: 0;
+            }
+            div {
+                background: #ffffff;
+                min-width: 310px;
+                border-radius: 8px;
+                padding: 20px;
+                transition: 0.2s ease;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+            }
+            .nav__link {
+                margin-bottom: 16px;
+                &:hover {
+                    color: $primary !important;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .nav__link {
+            @include flex-row(flex-start, center);
+            position: relative;
+            color: $black;
+            cursor: pointer;
+            svg {
+                transition: 0.2s;
+            }
+            &:hover {
+                color: $primary;
+                svg {
+                    transform: rotate(180deg);
+                }
+                svg path {
+                    fill: $primary;
+                }
+            }
+            &_disabled {
+                pointer-events: none;
+                color: #afafaf !important;
+            }
+            &_extended {
+                &:hover {
+                    .nav__link {
+                        color: $primary;
+                    }
+                    .nav__submenu {
+                        opacity: 1;
+                        pointer-events: all;
+                        .nav__link {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+        .nav__link-toggle {
+            margin-left: 7px;
+        }
+    }
+}

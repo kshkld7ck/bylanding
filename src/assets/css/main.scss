@@ -1,0 +1,21 @@
+@import "../../../node_modules/reset-css/reset.css";
+@import "./variables/screen";
+@import "./variables/main";
+@import "./variables/colors";
+@import "./mixins/flex";
+@import "./components/container";
+@import "./components/btn";
+@import "./components/link";
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
+* {
+    font-family: "Rubik", sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}

@@ -1,0 +1,96 @@
+@import "../../../assets/css/variables/colors";
+@import "../../../assets/css/mixins/flex";
+.byshop__block {
+    background-color: $black;
+    background-image: url("../../../assets/icons/byshopbg.svg");
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 0 90px;
+    align-items: center;
+}
+
+.byshop {
+    padding-bottom: 140px;
+    h3 {
+        font-size: 50px;
+        line-height: 54px;
+        font-weight: 700;
+        color: $black;
+        margin-top: 60px;
+        margin-bottom: 64px;
+        text-align: center;
+        span {
+            color: $primary;
+        }
+    }
+    .byshop__content {
+        a {
+            color: #fff;
+            font-size: 58px;
+            line-height: 69px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            margin-top: 30px;
+            span {
+                color: $primary;
+            }
+        }
+        p {
+            font-size: 24px;
+            line-height: 32px;
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 17px;
+        }
+        .byshop__extra {
+            color: $primary;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 34px;
+            margin-bottom: 18px;
+        }
+        .byshop__app {
+            img {
+                &:first-child {
+                    margin-right: 11px;
+                }
+            }
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1050px) {
+        h3 {
+            font-size: 34px;
+            line-height: 42px;
+        }
+        .byshop__block {
+            padding: 50px;
+            justify-content: center;
+            display: flex;
+            .byshop__logo {
+                max-width: 250px;
+                margin-right: 50px;
+            }
+            .byshop__link {
+                font-size: 28px;
+                line-height: 34px;
+            }
+            p {
+                margin-top: 10px;
+                font-size: 18px;
+                line-height: 24px;
+            }
+            .byshop__extra {
+                font-size: 26px;
+                line-height: 34px;
+            }
+            .byshop__app {
+                img {
+                    display: inline-block !important;
+                }
+            }
+        }
+    }
+}
